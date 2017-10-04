@@ -59,12 +59,6 @@ public class ModifyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-//                final String name = truckName.getText().toString();
-//                final String type = foodType.getText().toString();
-//                final Double cost = Double.parseDouble(avgCost.getText().toString());
-//                final Double lat = Double.parseDouble(latitude.getText().toString());
-//                final Double longi = Double.parseDouble(longitde.getText().toString());
-
                 foodTruck.setName(truckName.getText().toString());
                 foodTruck.setFoodType(foodType.getText().toString());
                 foodTruck.setAvgCost(Double.parseDouble(avgCost.getText().toString()));
