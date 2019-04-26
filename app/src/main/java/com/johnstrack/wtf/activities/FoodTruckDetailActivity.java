@@ -2,9 +2,9 @@ package com.johnstrack.wtf.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -40,17 +40,16 @@ public class FoodTruckDetailActivity extends FragmentActivity implements OnMapRe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detail_view);
 
-        truckName = (TextView) findViewById(R.id.detail_truck_name);
-        foodType = (TextView) findViewById(R.id.detail_food_type);
-        avgCost = (TextView) findViewById(R.id.detail_food_cost);
+        truckName = findViewById(R.id.detail_truck_name);
+        foodType = findViewById(R.id.detail_food_type);
+        avgCost = findViewById(R.id.detail_food_cost);
 
-        addReviewBtn = (Button) findViewById(R.id.add_review_btn);
-        viewReviewsBtn = (Button) findViewById(R.id.view_reviews_btn);
-        modifyTruckBtn = (Button) findViewById(R.id.modify_truck_btn);
+        addReviewBtn = findViewById(R.id.add_review_btn);
+        viewReviewsBtn = findViewById(R.id.view_reviews_btn);
+        modifyTruckBtn = findViewById(R.id.modify_truck_btn);
 
         foodTruck = getIntent().getParcelableExtra(FoodTrucksListActivity.EXTRA_ITEM_TRUCK);
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
-
 //        updateUI();
 
         viewReviewsBtn.setOnClickListener(new View.OnClickListener() {
@@ -80,6 +79,7 @@ public class FoodTruckDetailActivity extends FragmentActivity implements OnMapRe
         super.onResume();
 
         updateUI();
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -102,6 +102,10 @@ public class FoodTruckDetailActivity extends FragmentActivity implements OnMapRe
     }
 
     private void updateUI () {
+        // Refresh data
+//        FoodTruckAdapter adapter = new FoodTruckAdapter();
+//        adapter.notifyDataSetChanged();
+
         truckName.setText(foodTruck.getName());
         foodType.setText(foodTruck.getFoodType());
         avgCost.setText("$" + Double.toString(foodTruck.getAvgCost()));

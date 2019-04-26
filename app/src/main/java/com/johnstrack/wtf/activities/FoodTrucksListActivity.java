@@ -44,7 +44,7 @@ public class FoodTrucksListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_food_trucks_list);
 
         foodTrucksListActivity.setFoodTrucksListActivity(this);
-        addTruckBtn = (FloatingActionButton) findViewById(R.id.addTruckBtn);
+        addTruckBtn = findViewById(R.id.addTruckBtn);
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         addTruckBtn.setOnClickListener(new View.OnClickListener() {
@@ -71,7 +71,7 @@ public class FoodTrucksListActivity extends AppCompatActivity {
     }
 
     private void setUpRecycler() {
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_foodtruck);
+        RecyclerView recyclerView = findViewById(R.id.recycler_foodtruck);
         recyclerView.setHasFixedSize(true);
         adapter = new FoodTruckAdapter(trucks);
         recyclerView.setAdapter(adapter);
@@ -103,4 +103,7 @@ public void loadAddTruck () {
 
     }
 
+    public ArrayList<FoodTruck> getTrucks() {
+        return trucks;
+    }
 }

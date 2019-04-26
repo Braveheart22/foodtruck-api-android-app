@@ -55,7 +55,6 @@ public class DataService {
         final JsonArrayRequest getTrucks = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
-                System.out.println(response.toString());
 
                 try {
                     JSONArray foodTrucks = response;
@@ -77,7 +76,6 @@ public class DataService {
                 } catch (JSONException e){
                     Log.v("JSON", "EXC" + e.getLocalizedMessage());
                 }
-                //System.out.println("This is the food truck name: " + foodTruckList.get(0).getName());
                 listener.success(true);
 
             }
@@ -91,8 +89,8 @@ public class DataService {
         Volley.newRequestQueue(context).add(getTrucks);
         return foodTruckList;
     }
-    // Request all the FoodTruck Reviews
 
+    // Request all the FoodTruck Reviews
     public ArrayList<FoodTruckReview> downloadReviews (Context context, FoodTruck foodTruck, final ReviewsActivity.ReviewInterface listener) {
 
         String url = Constants.GET_REVIEWS + foodTruck.getId();

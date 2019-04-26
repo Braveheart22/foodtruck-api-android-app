@@ -33,14 +33,14 @@ public class ModifyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modify);
 
-        truckName = (TextView) findViewById(R.id.truck_name);
-        foodType = (TextView) findViewById(R.id.food_type);
-        avgCost = (TextView) findViewById(R.id.avg_cost);
-        latitude = (TextView) findViewById(R.id.latitude);
-        longitde = (TextView) findViewById(R.id.longitude);
+        truckName = findViewById(R.id.truck_name);
+        foodType = findViewById(R.id.food_type);
+        avgCost = findViewById(R.id.avg_cost);
+        latitude = findViewById(R.id.latitude);
+        longitde = findViewById(R.id.longitude);
 
-        modifyBtn = (Button) findViewById(R.id.modify_btn);
-        cancelBtn = (Button) findViewById(R.id.cancel_btn);
+        modifyBtn = findViewById(R.id.modify_btn);
+        cancelBtn = findViewById(R.id.cancel_btn);
 
         foodTruck = getIntent().getParcelableExtra(FoodTrucksListActivity.EXTRA_ITEM_TRUCK);
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -68,7 +68,6 @@ public class ModifyActivity extends AppCompatActivity {
                 System.out.println("(Before going back to the detail)The Food Truck name is: " + foodTruck.getName());
 
                 DataService.getInstance().modifyTruck(foodTruck, getBaseContext(), listener, authToken);
-
             }
         });
 
